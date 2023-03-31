@@ -20,12 +20,15 @@ return new class extends Migration
             $table->string('telefono_contacto')->nullable();
             $table->string('observaciones')->nullable();
             $table->string('estatus');
-            $table->unsignedBigInteger('diagnostico_id')->nullable();
+            $table->unsignedBigInteger('mecanico_id');
             $table->date('fecha_ultimo_movimiento');
             $table->date('fecha_entrega')->nullable();
             $table->foreign('vehiculo_id')
             ->references('id')
             ->on('vehiculos');
+            $table->foreign('mecanico_id')
+            ->references('id')
+            ->on('mecanicos');
             $table->timestamps();
         });
     }

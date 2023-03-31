@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Clientes extends Model
 {
     use HasFactory;
+
+    protected $table = 'clientes';
+
+    public function vehiculos() {
+        return $this->belongsTo(Vehiculos::class);
+    }
 }

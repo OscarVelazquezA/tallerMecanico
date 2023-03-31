@@ -17,6 +17,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('proveedor_id');
             $table->unsignedBigInteger('refaccion_id');
+            $table->foreign('proveedor_id')
+            ->references('id')
+            ->on('proveedores');
+            $table->foreign('refaccion_id')
+            ->references('id')
+            ->on('refacciones');
             $table->timestamps();
         });
     }

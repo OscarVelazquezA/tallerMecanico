@@ -17,6 +17,16 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('reparacion_id');
             $table->unsignedBigInteger('refaccion_id');
+            $table->unsignedBigInteger('diagnostico_id')->nullable();
+            $table->foreign('reparacion_id')
+            ->references('id')
+            ->on('reparaciones');
+            $table->foreign('refaccion_id')
+            ->references('id')
+            ->on('refacciones');
+            $table->foreign('diagnostico_id')
+            ->references('id')
+            ->on('diagnosticos');
             $table->timestamps();
         });
     }
